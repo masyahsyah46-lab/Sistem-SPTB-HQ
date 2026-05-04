@@ -8285,9 +8285,9 @@ Sila semak sistem STB untuk tindakan selanjutnya.`;
       
       if (dbSyorValue === 'YA' && dbSubmitDateValue && dbSubmitDateValue.trim() !== '') {
         const hasSyorAndConfirmed = (dbSyorStatusValue.trim() !== '') && isConfirmed;
-        const isPernahHantarSpi = (dbStartDateValue !== '' && dbStartDateValue === dbSubmitDateValue);
         
-        if (!hasSyorAndConfirmed && !isPernahHantarSpi) {
+        // Buang sekatan isPernahHantarSpi supaya ia sentiasa keluar popup jika belum confirm
+        if (!hasSyorAndConfirmed) {
           confirmHantarEmel = confirm("Adakah anda ingin hantar emel syarikat ini ke SPI?");
         }
       }
